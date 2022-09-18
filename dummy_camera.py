@@ -44,9 +44,7 @@ class Handler(BaseRequestHandler):
         if not Handler.skip_nth_completion or \
            not Handler.count % Handler.skip_nth_completion == 0:
             completion = (
-                b'\x01\x11\x00\x03' +
-                sequence_number.to_bytes(4, 'big') +
-                b'\x90\x51\xFF'
+                b'\x01\x11\x00\x03' + sequence_number.to_bytes(4, 'big') + b'\x90\x51\xFF'
             )
             if Handler.completion_processing_delay:
                 time.sleep(Handler.completion_processing_delay)
